@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding=''?>
+<Project>
+    <Directories>
+        <src_dir>./src</src_dir>
+        <bin_dir>./bin</bin_dir>
+        <obj_dir>./obj</obj_dir>
+    </Directories>
+    <Settings>
+        <OutputFile>writr</OutputFile>
+        <FileType>0</FileType>
+    </Settings>
+    <Includes>
+    </Includes>
+    <Dependancies>
+    </Dependancies>
+</Project>
