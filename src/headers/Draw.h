@@ -10,7 +10,8 @@ namespace writr
     {
         Left,
         Center,
-        Right
+        Right,
+        Justified
     };
 
     class Draw
@@ -21,6 +22,6 @@ namespace writr
         Draw(Window* window);
 
         void text(std::string txt, unsigned int x, unsigned int y) const;
-        void text(std::string txt, unsigned int x, unsigned int y, unsigned int width, TextAlign alignment) const;
+        void text(std::string txt, unsigned int x, unsigned int y, unsigned int width, TextAlign alignment, int spaces = 0) const;
     };
 }

@@ -22,10 +22,12 @@ namespace writr
     Window::Window() :
         draw(this)
     {
+        setlocale(LC_ALL, "");
+        
         // init ncurses
         initscr();
         raw();
-        noecho();    
+        noecho();
         keypad(stdscr, TRUE);
 
         // update the size and wipe the screen
