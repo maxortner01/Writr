@@ -10,7 +10,13 @@
         <FileType>0</FileType>
     </Settings>
     <Includes>
+        <dir>./src/headers</dir>
+        <dir cdir="false">/opt/ncurses/include</dir>
     </Includes>
     <Dependancies>
+        <Library>
+            <dir cdir="false">/opt/ncurses/lib</dir>
+            <file>ncurses</file>
+        </Library>
     </Dependancies>
 </Project>
