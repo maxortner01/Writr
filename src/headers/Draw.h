@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <inc.h>
 
 namespace writr
 {
@@ -21,7 +21,7 @@ namespace writr
     public:
         Draw(Window* window);
 
-        void text(std::string txt, unsigned int x, unsigned int y) const;
-        void text(std::string txt, unsigned int x, unsigned int y, unsigned int width, TextAlign alignment, int spaces = 0) const;
+        void text(std::string txt, unsigned int x, unsigned int y, short attr = 0x000F) const;
+        void text(std::string txt, unsigned int x, unsigned int y, unsigned int width, TextAlign alignment, int spaces = 0, short attr = 0x000F) const;
     };
 }

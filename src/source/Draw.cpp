@@ -10,15 +10,17 @@ namespace writr
 
     }
 
-    void Draw::text(std::string txt, unsigned int x, unsigned int y) const
+    void Draw::text(std::string txt, unsigned int x, unsigned int y, short attr) const
     {
         for (int i = 0; i < txt.size(); i++)
             if (y * w->getSize().width + x < w->getSize().width * w->getSize().height)
-                (*w)(x + i, y) = txt[i];
+                w->set(x + i, y, txt[i], attr);
     }
 
-    void Draw::text(std::string txt, unsigned int x, unsigned int y, unsigned int width, TextAlign alignment, int space_count) const
+    void Draw::text(std::string txt, unsigned int x, unsigned int y, unsigned int width, TextAlign alignment, int space_count, short attr) const
     {
+        if (txt.length() == 0 || txt.empty()) return;
+
         switch (alignment)
         {
             case TextAlign::Left:
@@ -71,12 +73,19 @@ namespace writr
                     if (txt[i] == ' ') spaces.push_back(i);
 
                 spaces.shrink_to_fit();
+                
+                if (spaces.size() == 0)
+                {
+                    text(txt, x, y);
+                    return;
+                }
 
                 unsigned int left_count, right_count, mid;
                 left_count  = 0;
                 right_count = spaces.size() - 1;
                 mid = spaces.size() / 2;
 
+                int v = 0;
                 while(txt.length() < r_width)
                 {
                     for (int i = left_count + 1; i < spaces.size(); i++)
@@ -98,10 +107,11 @@ namespace writr
                         break;
                 }
 
+
                 for (int i = 0; i < space_count; i++)
                     txt.insert(txt.begin(), ' ');
 
-                text(txt, x, y);
+                text(txt, x, y, attr);
 
                 return;
             }
